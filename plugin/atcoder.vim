@@ -49,9 +49,9 @@ function! Atcoder(...)
 	"endfor
 	if bool == "true"
 		let winac = popup_create(ac,{"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor",})
-		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+6",})
+		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+7",})
 	else
-		let winwa = popup_create(wa,{"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+6",})
+		let winwa = popup_create(wa,{"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+7",})
 		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+6",})
 	endif
 endfunction
