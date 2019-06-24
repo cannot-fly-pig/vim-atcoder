@@ -55,6 +55,6 @@ function! Atcoder(...)
 		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any",})
 	endif
 endfunction
-command! -nargs=* Atcoder call Atcoder(<f-args>)
 let &cpo = s:save_cpo
 unlet s:save_cpo
+command! -nargs=* Atcoder call Atcoder(<f-args>)
