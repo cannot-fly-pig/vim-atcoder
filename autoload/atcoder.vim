@@ -1,7 +1,7 @@
 scriptencoding utf-8
 let s:save_cpo = &cpo
 set cpo&vim
-function! Atcoder(...)
+function! g:Atcoder(...)
 	"htmlの取得
 	let text = system("curl https://atcoder.jp/contests/".a:1.a:2."/tasks/".a:1.a:2."_".a:3)
 	let i=1
@@ -57,4 +57,4 @@ function! Atcoder(...)
 endfunction
 let &cpo = s:save_cpo
 unlet s:save_cpo
-command! -nargs=* Atcoder call Atcoder(<f-args>)
+command! -nargs=* Atcoder call g:Atcoder(<f-args>)
