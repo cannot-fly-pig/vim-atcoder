@@ -48,10 +48,10 @@ function! Atcoder(...)
 	"	echo strlen(i)
 	"endfor
 	if bool == "true"
-		let winac = popup_create(ac,{"moved": "any",})
+		let winac = popup_create(ac,{"moved": "any","line": "cursor"})
 		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+6",})
 	else
-		let winwa = popup_create(wa,{"moved": "any",})
+		let winwa = popup_create(wa,{"moved": "any","line": "cursor"})
 		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+6",})
 	endif
 endfunction
