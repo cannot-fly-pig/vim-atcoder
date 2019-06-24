@@ -41,7 +41,7 @@ function! Atcoder(...)
 			call add(t_bool,"AC")
 		endif
 		let test_num = i + 1
-		call add(comment,"testcase ".test_num." | ".in[i]." | ".out[i]." | ".y_out[i]." | ".bool[i])
+		call add(comment,"testcase ".test_num." | ".in[i]." | ".out[i]." | ".y_out[i]." | ".t_bool[i])
 		let i += 1
 	endwhile
 	"for i in comment
