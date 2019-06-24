@@ -1,9 +1,18 @@
 scriptencoding utf-8
 let s:save_cpo = &cpo
 set cpo&vim
+function! Login(n,p)
+	echo "login now..."
+	let login = system("curl -c ".$HOME."/.atcoder-cookie.txt -d name=".a:n." -d password=".a:p." https://arc030.contest.atcoder.jp/login?next_url=https%3A%2F%2Farc030.contest.atcoder.jp%2Fsubmissions%2Fme")
+	echo "login!"
+endfunction
 function! Atcoder(...)
+	if filereadable($HOME."/.atcoder-cookie.txt") == 0
+		echo filereadable($HOME."/.atcoder-cookie.txt")
+		call Login(g:atcoder_name,g:atcoder_pass)
+	endif
 	"htmlの取得
-	let text = system("curl https://atcoder.jp/contests/".a:1.a:2."/tasks/".a:1.a:2."_".a:3)
+	let text = system("curl -b cookie.txt https://".a:1.a:2.".contest.atcoder.jp/tasks/".a:1.a:2."_".a:3)
 	let i=1
 	let num = []
 	let in = []
