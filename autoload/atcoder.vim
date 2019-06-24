@@ -1,8 +1,7 @@
 scriptencoding utf-8
 let s:save_cpo = &cpo
 set cpo&vim
-command! -nargs=* Atcoder call s:Atcoder(<f-args>)
-function! s:Atcoder(...)
+function! Atcoder(...)
 	"htmlの取得
 	let text = system("curl https://atcoder.jp/contests/".a:1.a:2."/tasks/".a:1.a:2."_".a:3)
 	let i=1
@@ -56,5 +55,6 @@ function! s:Atcoder(...)
 		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any",})
 	endif
 endfunction
+command! -nargs=* Atcoder call Atcoder(<f-args>)
 let &cpo = s:save_cpo
 unlet s:save_cpo
