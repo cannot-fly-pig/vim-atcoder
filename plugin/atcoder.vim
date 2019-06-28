@@ -7,7 +7,7 @@ function! Login(n,p)
 	echo "login!"
 endfunction
 function! Atcoder(...)
-	if filereadable($HOME."/.atcoder-cookie.txt") == 0
+	if filereadable($HOME."/.atcoder-cookie.txt" == 0 && g:atcoder_login == 1)
 		echo filereadable($HOME."/.atcoder-cookie.txt")
 		call Login(g:atcoder_name,g:atcoder_pass)
 	endif
@@ -21,6 +21,13 @@ function! Atcoder(...)
 	let t_bool = []
 	let bool = "true"
 	let comment = []
+	let s:V= vital#of('vital')
+	let s:T= s:V.import('Text.Table')
+	unlet s:V
+	let s:table = s:T.new({
+	    \   'columns': [{}, {}, {}, {}, {}],
+	    \   'header':  ['No.', 'IN', 'OUT','your anser','result'],
+	    \})
 	let ac = ["    _       ____   _","   / \\     / ___| | |","  / _ \\   | |     | |"," / ___ \\  | |___  |_|","/_/   \\_\\  \\____| (_)",""]
 	let wa = ["__        __     _      _ ","\\ \\      / /    / \\    | |"," \\ \\ /\\ / /    / _ \\   | |","  \\ V  V /    / ___ \\  |_|","   \\_/\\_/    /_/   \\_\\ (_)",""]
 	"パース
@@ -50,18 +57,15 @@ function! Atcoder(...)
 			call add(t_bool,"AC")
 		endif
 		let test_num = i + 1
-		call add(comment,"testcase ".test_num." | ".in[i]." | ".out[i]." | ".y_out[i]." | ".t_bool[i])
+		call s:table.add_row(["testcase ".test_num,in[i],out[i],y_out[i],t_bool[i]])
 		let i += 1
 	endwhile
-	"for i in comment
-	"	echo strlen(i)
-	"endfor
 	if bool == "true"
 		let winac = popup_create(ac,{"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": 15,})
-		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": 23,})
+		let winid = popup_create(s:table.stringify(), {"line": 23,"moved": "any"})
 	else
-		let winwa = popup_create(wa,{"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": 23,})
-		let winid = popup_create(comment, {"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": "cursor+6",})
+		let winwa = popup_create(wa,{"border": [1, 1, 1, 1],'borderchars': ['-','|','-','|','+','+','+','+'],"moved": "any","line": 15,})
+		let winid = popup_create(s:table.stringify(), {"line": 23,"moved": "any"})
 	endif
 endfunction
 let &cpo = s:save_cpo
