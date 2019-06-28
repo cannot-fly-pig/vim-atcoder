@@ -29,6 +29,17 @@ Plugin 'cannot-fly-pig/vim-atcoder'
 ```
 :Atcoder [ABC||AGC||ARC] [コンテスト番号] [task(aとかbとか)]
 ```
+### 設定項目
+```
+let g:atcoder_login = 0 (デフォルトは0)
+```
+1にすることでログインができる(レートがつくコンテストはログインしないと問題が見れない
+)
+```
+let g:atcoder_name = [ユーザー名]
+let g:atcoder_pass = [パスワード]
+```
+ログインに必要
 ### 注意点
 
 * 今の所 c++ (g++ -std=gnu++03 -O2 -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o ./a.out)にしか対応していません
