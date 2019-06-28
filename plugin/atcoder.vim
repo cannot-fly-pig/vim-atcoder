@@ -20,7 +20,6 @@ function! Atcoder(...)
 	let y_out = []
 	let t_bool = []
 	let bool = "true"
-	let comment = []
 	let s:V= vital#of('vital')
 	let s:T= s:V.import('Text.Table')
 	unlet s:V
