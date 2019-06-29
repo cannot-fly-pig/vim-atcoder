@@ -12,7 +12,7 @@ function! Atcoder(...)
 		call Login(g:atcoder_name,g:atcoder_pass)
 	endif
 	"htmlの取得
-	let text = system("curl -b cookie.txt https://".a:1.a:2.".contest.atcoder.jp/tasks/".a:1.a:2."_".a:3)
+	let text = system("curl -b ".$HOME."/.atcoder-cookie.txt https://".a:1.a:2.".contest.atcoder.jp/tasks/".a:1.a:2."_".a:3)
 	let i=1
 	let num = []
 	let in = []
