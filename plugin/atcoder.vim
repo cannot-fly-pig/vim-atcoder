@@ -20,7 +20,7 @@ function! Atcoder(...)
 	let y_out = []
 	let t_bool = []
 	let bool = "true"
-	let s:V = vital#of('atcoder')
+	let s:V = vital#atcoder#new('atcoder')
 	let s:table = s:V.import('Text.Table')
 	let s:table = s:T.new({
 	    \   'columns': [{}, {}, {}, {}, {}],
