@@ -20,9 +20,8 @@ function! Atcoder(...)
 	let y_out = []
 	let t_bool = []
 	let bool = "true"
-	let s:V= vital#of('vital')
-	let s:T= s:V.import('Text.Table')
-	unlet s:V
+	let s:V = vital#atcoder#new('atcoder')
+	let s:table = s:V.import('Text.Table')
 	let s:table = s:T.new({
 	    \   'columns': [{}, {}, {}, {}, {}],
 	    \   'header':  ['No.', 'IN', 'OUT','your anser','result'],
