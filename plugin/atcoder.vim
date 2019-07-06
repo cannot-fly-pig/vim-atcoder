@@ -21,7 +21,7 @@ function! Atcoder(...)
 	let t_bool = []
 	let bool = "true"
 	let s:V = vital#atcoder#new()
-	let s:table = s:V.import('Text.Table')
+	let s:T = s:V.import('Text.Table')
 	let s:table = s:T.new({
 	    \   'columns': [{}, {}, {}, {}, {}],
 	    \   'header':  ['No.', 'IN', 'OUT','your anser','result'],
