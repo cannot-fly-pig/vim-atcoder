@@ -7,7 +7,7 @@ function! Login(n,p)
 	echo "login!"
 endfunction
 function! Atcoder(...)
-	if filereadable($HOME."/.atcoder-cookie.txt" == 0 && g:atcoder_login == 1)
+	if filereadable($HOME."/.atcoder-cookie.txt" == 0) && g:atcoder_login == 1
 		echo filereadable($HOME."/.atcoder-cookie.txt")
 		call Login(g:atcoder_name,g:atcoder_pass)
 	endif
