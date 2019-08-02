@@ -44,7 +44,7 @@ function! Atcoder(...)
 	endwhile
 	let i = 0
 	"実行&判定
-	let a = system("g++ -std=gnu++03 -O2 -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o ./a.out ".expand("%"))
+	let a = system("g++ -std=c++14 -O2 -I/opt/boost/gcc/include -L/opt/boost/gcc/lib -o ./a.out ".expand("%"))
 	while i < ii-1
 		let a = system("echo '".in[i]."' | ./a.out")
 		call add(y_out,a)
